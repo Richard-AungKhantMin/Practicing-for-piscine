@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func arraylength() {
+func main() {
 	arr := []int{10, 20, 30, 40, 50}
 	var length int
 
