@@ -1,6 +1,15 @@
-package piscine
+package main
 
-import "github.com/01-edu/z01"
+import (
+	"github.com/01-edu/z01"
+)
+
+func main() {
+	PrintNbr(-123)
+	PrintNbr(0)
+	PrintNbr(123)
+	z01.PrintRune('\n')
+}
 
 func PrintNbr(n int) {
 	var sign rune
