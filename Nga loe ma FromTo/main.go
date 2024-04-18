@@ -26,7 +26,7 @@ func FromTo(from int, to int) string {
 	if from < to {
 		for i := from; i <= to; i++ {
 			if i < 10 {
-				answer = answer + "0" + strconv.Itoa(i) + ", "
+				answer = "0" + answer + strconv.Itoa(i) + ", "
 			}
 			if i == to {
 				answer = answer + strconv.Itoa(i) + "\n"
