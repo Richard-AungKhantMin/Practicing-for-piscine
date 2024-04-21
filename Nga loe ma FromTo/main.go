@@ -12,6 +12,7 @@ func main() {
 	fmt.Print(FromTo(10, 10))
 	fmt.Print(FromTo(66, 12))
 	fmt.Print(FromTo(100, 10))
+	fmt.Print(FromTo(4, 8))
 }
 
 func FromTo(from int, to int) string {
@@ -26,27 +27,31 @@ func FromTo(from int, to int) string {
 	if from < to {
 		for i := from; i <= to; i++ {
 			if i < 10 {
-				answer = "0" + answer + strconv.Itoa(i) + ", "
-			}
-			if i == to {
-				answer = answer + strconv.Itoa(i) + "\n"
-				break
-			} else {
-				answer = answer + strconv.Itoa(i) + ", "
+				answer = answer + "0"
 			}
 
+			answer = answer + strconv.Itoa(i)
+
+			if i != to {
+				answer = answer + ", "
+			}
 		}
+		answer = answer + "\n"
 	}
 
 	if from > to {
 		for i := from; i >= to; i-- {
-			if i == to {
-				answer = answer + strconv.Itoa(i) + "\n"
-				break
-			} else {
-				answer = answer + "0" + strconv.Itoa(i) + ", "
+			if i < 10 {
+				answer = answer + "0"
+			}
+
+			answer = answer + strconv.Itoa(i)
+
+			if i != to {
+				answer = answer + ", "
 			}
 		}
+		answer = answer + "\n"
 	}
 
 	if from == to {
