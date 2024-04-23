@@ -9,6 +9,7 @@ func main() {
 
 	if len(os.Args) != 3 {
 		fmt.Println()
+		return
 	}
 
 	var answer string
