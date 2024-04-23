@@ -1,0 +1,1 @@
+slicy := []rune(str)
