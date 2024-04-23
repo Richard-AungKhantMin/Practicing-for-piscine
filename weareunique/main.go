@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	fmt.Println(WeAreUnique("foo", "boo"))
+	fmt.Println(WeAreUnique("foo", "boobb"))
 	fmt.Println(WeAreUnique("", ""))
 	fmt.Println(WeAreUnique("abc", "def"))
 }
@@ -32,20 +32,20 @@ func WeAreUnique(str1, str2 string) int {
 		}
 	}
 
-	starter1 := 0
-	for i := starter1; i < len(str1)-1; i++ {
-		if str1[i] == str1[i+1] && !Idontknow(answer, rune(str1[i])) {
-			answer = answer + string(str1[i])
+	for i := 0; i < len(str1); i++ {
+		for j := i + 1; j < len(str1); j++ {
+			if str1[i] == str1[j] && !Idontknow(answer, rune(str1[i])) {
+				answer = answer + string(str1[i])
+			}
 		}
-		starter1++
 	}
 
-	starter2 := 0
-	for i := starter2; i < len(str2)-1; i++ {
-		if str2[i] == str2[i+1] && !Idontknow(answer, rune(str2[i])) {
-			answer = answer + string(str2[i])
+	for i := 0; i < len(str2); i++ {
+		for j := i + 1; j < len(str2); j++ {
+			if str2[i] == str2[j] && !Idontknow(answer, rune(str2[i])) {
+				answer = answer + string(str2[i])
+			}
 		}
-		starter2++
 	}
 
 	for _, each := range combined {
