@@ -16,6 +16,5 @@ func CheckNumber(arg string) bool {
 			return true
 		}
 	}
-
 	return false
 }
