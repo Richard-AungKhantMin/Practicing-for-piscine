@@ -12,9 +12,9 @@ func main() {
 func CheckNumber(arg string) bool {
 
 	for _, each := range arg {
-		if '0' <= each && each <= '9' {
-			return true
+		if each < '0' || each > '9' {
+			return false
 		}
 	}
-	return false
+	return true
 }
