@@ -11,15 +11,42 @@ func main() {
 	fmt.Println(CamelToSnakeCase("CAMELtoSnackCASE"))
 	fmt.Println(CamelToSnakeCase("camelToSnakeCase"))
 	fmt.Println(CamelToSnakeCase("hey2"))
+
+	args := []string{
+		"CamelCase",
+		"camelCase",
+		"HelloWorld",
+		"132",
+		" ",
+		"",
+		"A",
+		"abcs",
+		"AbC",
+		"AbCEf",
+		"abcAree",
+		"ahe1Abde",
+		"tesTing1",
+		"SOME_VARIABLE",
+		"ASuperLonGVariableName",
+		"thisIsaTestOfCamelCase",
+		"aA",
+	}
+
+	for _, arg := range args {
+
+		fmt.Println(CamelToSnakeCase(arg))
+
+	}
+
 }
 
 func CamelToSnakeCase(s string) string {
 
-	var answer string = string(s[0])
-
 	if len(s) == 0 {
 		return ""
 	}
+
+	var answer string = string(s[0])
 
 	if !IsCamel(s) {
 
@@ -68,7 +95,7 @@ func IsCamel(input string) bool {
 
 		}
 
-		if i == len(input) && count == 0 {
+		if i == len(input)-1 && count == 0 {
 
 			return false
 
