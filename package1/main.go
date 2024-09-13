@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 
+	// fix the module address
+
 	"practicingforpiscine/package1/p1"
 	"practicingforpiscine/package1/p2"
 )
