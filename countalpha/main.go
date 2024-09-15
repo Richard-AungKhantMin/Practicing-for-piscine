@@ -12,13 +12,14 @@ func main() {
 
 func CountAlpha(s string) int {
 
-	var count int
-	slicy := []rune(s)
+	count := 0
 
-	for i := 0; i < len(s); i++ {
-		if 'A' <= slicy[i] && slicy[i] <= 'Z' || 'a' <= slicy[i] && slicy[i] <= 'z' {
+	for _, each := range s {
+
+		if each >= 'a' && each <= 'z' || each >= 'A' && each <= 'Z' {
 			count++
 		}
+
 	}
 
 	return count
