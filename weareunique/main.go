@@ -31,10 +31,12 @@ func WeAreUnique(str1, str2 string) (int, string) {
 
 	var answer string
 
+	//empty case
 	if len(str1) == 0 && len(str2) == 0 {
 		return -1, ""
 	}
 
+	//one of them is empty
 	if len(str1) == 0 {
 		for _, each := range str2 {
 			if !IsContain(str2, each) && !IsContain(answer, each) {
@@ -51,6 +53,7 @@ func WeAreUnique(str1, str2 string) (int, string) {
 		}
 	}
 
+	//searching inside each other
 	for _, each := range str1 {
 		if !IsContain(str2, each) && !IsContain(answer, each) {
 			answer = answer + string(each)
@@ -66,6 +69,7 @@ func WeAreUnique(str1, str2 string) (int, string) {
 	return len(answer), answer
 }
 
+// Is the rune character containing inside this word?
 func IsContain(word string, char rune) bool {
 
 	for _, each := range word {
