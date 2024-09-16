@@ -27,6 +27,8 @@ func main() {
 	}
 }
 
+//The Program starts here
+
 func WeAreUnique(str1, str2 string) (int, string) {
 
 	var answer string
