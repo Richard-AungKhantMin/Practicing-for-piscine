@@ -22,11 +22,11 @@ func HashCode(dec string) string {
 	hashed := ""
 
 	for _, char := range dec {
-		hash := (int(char) + size) % 127
-		if hash < 32 || hash > 126 {
-			hash += 33
+		changed := (int(char) + size) % 127
+		if changed < 32 || changed > 126 {
+			changed += 33
 		}
-		hashed += string(hash)
+		hashed += string(changed)
 	}
 	return hashed
 
