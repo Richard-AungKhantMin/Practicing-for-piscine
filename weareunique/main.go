@@ -25,6 +25,9 @@ func main() {
 	for _, arg := range table {
 		fmt.Println(WeAreUnique(arg[0], arg[1]))
 	}
+	fmt.Println(WeAreUnique("foo", "boo"))
+	fmt.Println(WeAreUnique("", ""))
+	fmt.Println(WeAreUnique("abc", "def"))
 }
 
 //The Program starts here
@@ -41,18 +44,20 @@ func WeAreUnique(str1, str2 string) (int, string) {
 	//one of them is empty
 	if len(str1) == 0 {
 		for _, each := range str2 {
-			if !IsContain(str2, each) && !IsContain(answer, each) {
+			if !IsContain(answer, each) {
 				answer = answer + string(each)
 			}
 		}
+		return len(answer), answer
 	}
 
 	if len(str2) == 0 {
 		for _, each := range str1 {
-			if !IsContain(str1, each) && !IsContain(answer, each) {
+			if !IsContain(answer, each) {
 				answer = answer + string(each)
 			}
 		}
+		return len(answer), answer
 	}
 
 	//searching inside each other
