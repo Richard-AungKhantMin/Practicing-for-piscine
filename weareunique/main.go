@@ -5,56 +5,65 @@ import (
 )
 
 func main() {
-	fmt.Println(WeAreUnique("foo", "boobb"))
-	fmt.Println(WeAreUnique("", ""))
-	fmt.Println(WeAreUnique("abc", "def"))
+	table := [][]string{
+		{"abc", "def"},
+		{"hello", "yoall"},
+		{"everyone", ""},
+		{"hello world", "fam"},
+		{"abc", "abc"},
+		{"", ""},
+		{"pomme", "pomme"},
+		{"+265", "265"},
+		{"123231", "123231"},
+		{"w^p@@j", "w^p@@j"},
+		{"26235e5", "4478q92"},
+		{"		", "		 "},
+		{"AB$%d.52", "eepqdl.52"},
+		{"", "eveRyone"},
+		{"_55w1se", "55w1se"},
+	}
+	for _, arg := range table {
+		fmt.Println(WeAreUnique(arg[0], arg[1]))
+	}
 }
 
-func WeAreUnique(str1, str2 string) int {
+func WeAreUnique(str1, str2 string) (int, string) {
 
 	var answer string
-	var tempo string
-	combined := str1 + str2
 
-	if len(str1) == 0 || len(str2) == 0 {
-		return -1
+	if len(str1) == 0 && len(str2) == 0 {
+		return -1, ""
 	}
 
 	for _, each := range str1 {
-		if Idontknow(str2, each) && !Idontknow(answer, each) {
+		if !Idontknow(str2, each) && !Idontknow(answer, each) {
 			answer = answer + string(each)
 		}
 	}
 
 	for _, each := range str2 {
-		if Idontknow(str1, each) && !Idontknow(answer, each) {
+		if !Idontknow(str1, each) && !Idontknow(answer, each) {
 			answer = answer + string(each)
 		}
 	}
 
-	for i := 0; i < len(str1); i++ {
-		for j := i + 1; j < len(str1); j++ {
-			if str1[i] == str1[j] && !Idontknow(answer, rune(str1[i])) {
-				answer = answer + string(str1[i])
+	if len(str1) == 0 {
+		for _, each := range str2 {
+			if !Idontknow(str2, each) && !Idontknow(answer, each) {
+				answer = answer + string(each)
 			}
 		}
 	}
 
-	for i := 0; i < len(str2); i++ {
-		for j := i + 1; j < len(str2); j++ {
-			if str2[i] == str2[j] && !Idontknow(answer, rune(str2[i])) {
-				answer = answer + string(str2[i])
+	if len(str2) == 0 {
+		for _, each := range str1 {
+			if !Idontknow(str1, each) && !Idontknow(answer, each) {
+				answer = answer + string(each)
 			}
 		}
 	}
 
-	for _, each := range combined {
-		if !Idontknow(answer, each) {
-			tempo = tempo + string(each)
-		}
-	}
-
-	return len(tempo)
+	return len(answer), answer
 }
 
 func Idontknow(checkgyi string, checklay rune) bool {
