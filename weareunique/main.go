@@ -35,21 +35,9 @@ func WeAreUnique(str1, str2 string) (int, string) {
 		return -1, ""
 	}
 
-	for _, each := range str1 {
-		if !Idontknow(str2, each) && !Idontknow(answer, each) {
-			answer = answer + string(each)
-		}
-	}
-
-	for _, each := range str2 {
-		if !Idontknow(str1, each) && !Idontknow(answer, each) {
-			answer = answer + string(each)
-		}
-	}
-
 	if len(str1) == 0 {
 		for _, each := range str2 {
-			if !Idontknow(str2, each) && !Idontknow(answer, each) {
+			if !IsContain(str2, each) && !IsContain(answer, each) {
 				answer = answer + string(each)
 			}
 		}
@@ -57,19 +45,31 @@ func WeAreUnique(str1, str2 string) (int, string) {
 
 	if len(str2) == 0 {
 		for _, each := range str1 {
-			if !Idontknow(str1, each) && !Idontknow(answer, each) {
+			if !IsContain(str1, each) && !IsContain(answer, each) {
 				answer = answer + string(each)
 			}
+		}
+	}
+
+	for _, each := range str1 {
+		if !IsContain(str2, each) && !IsContain(answer, each) {
+			answer = answer + string(each)
+		}
+	}
+
+	for _, each := range str2 {
+		if !IsContain(str1, each) && !IsContain(answer, each) {
+			answer = answer + string(each)
 		}
 	}
 
 	return len(answer), answer
 }
 
-func Idontknow(checkgyi string, checklay rune) bool {
+func IsContain(word string, char rune) bool {
 
-	for _, sautkalay := range checkgyi {
-		if sautkalay == checklay {
+	for _, each := range word {
+		if each == char {
 			return true
 		}
 	}
