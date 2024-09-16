@@ -41,25 +41,6 @@ func WeAreUnique(str1, str2 string) (int, string) {
 		return -1, ""
 	}
 
-	//one of them is empty
-	if len(str1) == 0 {
-		for _, each := range str2 {
-			if !IsContain(answer, each) {
-				answer = answer + string(each)
-			}
-		}
-		return len(answer), answer
-	}
-
-	if len(str2) == 0 {
-		for _, each := range str1 {
-			if !IsContain(answer, each) {
-				answer = answer + string(each)
-			}
-		}
-		return len(answer), answer
-	}
-
 	//searching inside each other
 	for _, each := range str1 {
 		if !IsContain(str2, each) && !IsContain(answer, each) {
