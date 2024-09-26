@@ -14,6 +14,7 @@ func main() {
 	fmt.Println(Gcd(25, 15))
 	fmt.Println(Gcd(23043, 122))
 	fmt.Println(Gcd(11, 77))
+	fmt.Println(Gcd(15, 30))
 }
 
 func Gcd(a, b uint) uint {
