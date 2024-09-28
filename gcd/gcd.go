@@ -16,7 +16,7 @@ func main() {
 	fmt.Println(Gcd(11, 77))
 }
 
-func Gcd(a, b uint) uint {
+func Gcd(a, b uint) (uint, []uint, []uint) {
 
 	Af := factor(a)
 	Bf := factor(b)
@@ -32,7 +32,7 @@ func Gcd(a, b uint) uint {
 		}
 	}
 
-	return answer
+	return answer, Af, Bf
 }
 
 func factor(a uint) []uint {
