@@ -7,8 +7,6 @@ import (
 
 func main() {
 
-	fmt.Printf("Arguments: %v\n", os.Args)
-
 	if len(os.Args) != 3 {
 		return
 	}
