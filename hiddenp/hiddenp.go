@@ -11,6 +11,8 @@ func main() {
 		return
 	}
 
+	fmt.Printf("Arguments: %v\n", os.Args)
+
 	s1 := os.Args[1]
 	s2 := os.Args[2]
 
