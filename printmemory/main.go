@@ -6,6 +6,7 @@ import (
 
 func main() {
 	PrintMemory([10]byte{'h', 'e', 'l', 'l', 'o', 16, 21, '*'})
+
 }
 
 func PrintMemory(arr [10]byte) {
