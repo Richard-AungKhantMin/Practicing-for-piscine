@@ -33,14 +33,21 @@ func main() {
 	}
 
 	var result string
-	for i, each := range resultS {
+	for i, eachWord := range resultS {
 		if i == 0 {
-			result = each
+			result = eachWord
 		} else {
-			result = result + " " + each
+			result = result + " " + eachWord
 		}
-
 	}
+
+	/*for j, s := range resultS {
+		if j < len(resultS)-1 {
+			result += s + " "
+		} else {
+			result += s
+		}
+	}*/
 
 	PrintStr(result)
 }
