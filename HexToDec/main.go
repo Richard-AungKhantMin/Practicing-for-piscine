@@ -11,6 +11,8 @@ func main() {
 		return
 	}
 
+	IsValid(os.Args[1])
+
 	fmt.Println("The decimal form of the input is: ", HexToDex(os.Args[1]))
 
 }
@@ -37,11 +39,11 @@ func StrToInt(c rune) int {
 		return int(c - '0')
 	}
 
-	if c >= 'a' && c <= 'z' {
+	if c >= 'a' && c <= 'f' {
 		return 10 + int(c-'a')
 	}
 
-	if c >= 'A' && c <= 'Z' {
+	if c >= 'A' && c <= 'F' {
 		return 10 + int(c-'A')
 	}
 
@@ -61,4 +63,17 @@ func Power(power int) int {
 	}
 
 	return result
+}
+
+func IsValid(input string) {
+	for _, c := range input {
+		if c >= '0' && c <= '9' || c >= 'a' && c <= 'f' || c >= 'A' && c <= 'F' {
+			continue
+
+		} else {
+			fmt.Println("The input is not a hexadecimal number.")
+			os.Exit(1)
+		}
+
+	}
 }
